@@ -1,7 +1,9 @@
 import { io } from "socket.io-client";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-const socket = io("http://localhost:8000", { transports: ["websocket"] });
+const socket = io("https://SocketIO.idatenshow758.repl.co", {
+  transports: ["websocket"],
+});
 
 export default function Home() {
   const sendMessages = () => {
