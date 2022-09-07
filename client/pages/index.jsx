@@ -1,6 +1,5 @@
 import { io } from "socket.io-client";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 const socket = io("http://localhost:8000", { transports: ["websocket"] });
 
@@ -16,7 +15,7 @@ export default function Home() {
     });
   }, [socket]);
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Socket.io</title>
         <meta name="description" content="Socket.io Chat App" />
