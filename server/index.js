@@ -1,10 +1,18 @@
-import { createServer } from "http";
-import { Server } from "socket.io";
+const express = require("express");
+const cors = require("cors");
+const http = require("http");
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
-  cors: { origin: "http://localhost:3000/", methods: ["GET", "POST"] },
-});
+const app = express();
+app.use(express.json());
+app.use(cors());
+ 
+const server = http.createServer(app);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://socket-io-taupe.vercel.app/",
+    methods: ["GET", "POST"],
+  },
+});;
 
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
@@ -13,4 +21,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(8000);
+server.listen(8000);
