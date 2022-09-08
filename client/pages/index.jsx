@@ -6,6 +6,12 @@ const socket = io("https://SocketIO.idatenshow758.repl.co", {
 });
 
 export default function Home() {
+  time =
+    new Date(Date.now()).getHours() +
+    " : " +
+    new Date(Date.now()).getMinutes() +
+    " : ";
+  // + new Date(Date.now()).getSeconds();
   const sendMessages = () => {
     socket.emit("sendMessages", { message });
   };
