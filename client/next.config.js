@@ -4,4 +4,8 @@ const nextConfig = {
   swcMinify: true,
 };
 
-module.exports = { nextConfig, assetPrefix: "./", webpack5: true };
+module.exports = {
+  nextConfig,
+  assetPrefix: "./",
+  webpack5: true,
+};
